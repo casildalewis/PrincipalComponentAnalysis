@@ -68,3 +68,50 @@ def display_image(orig, proj):
     plt.subplots_adjust(wspace = 0.5)
     plt.show()
 
+def main():
+    # x = load_and_center_dataset('YaleB_32x32.npy')
+    # print(x)
+
+    # print(len(x))
+    # print(len(x[0]))
+    # print(np.average(x))
+
+    # print(x)
+
+    # S = get_covariance(x)
+    
+    # print(S)
+    # print(len(S))
+    # print(len(S[0]))
+
+    # Lambda, U = get_eig(S, 2)
+
+    # Lambda, U = get_eig_perc(S, 0.07)
+
+    # print(Lambda)
+    # print(U)
+
+    # projection = project_image(x[100], U)
+    # print(projection)
+
+    # display_image(x[100], projection)
+
+    data = np.asarray([[2, 0, 0], [0, 1, 0], [0, 0, 3], [2, 1, 3]])
+    # print(data)
+    mean = np.mean(data, axis=0)
+    # print(mean)
+    dataCent = data - mean
+    # print(dataCent)
+    S = np.cov(np.transpose(dataCent))
+    # print(S)
+    values, vectors = eigh(S)
+    print(values)
+    print(vectors)
+
+
+
+
+
+if __name__=="__main__": 
+    main() 
+
